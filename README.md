@@ -1,4 +1,5 @@
 # typed
+[![Go](https://github.com/JohnMurray/typed/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/JohnMurray/typed/actions/workflows/go.yml)
 
 Typed is a simple and pragmatic set of type wrappers for common Go use-cases. This aims to be simple
 and usable in production code environments.
