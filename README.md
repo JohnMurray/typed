@@ -1,6 +1,7 @@
 # typed
 [![Go](https://github.com/JohnMurray/typed/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/JohnMurray/typed/actions/workflows/go.yml)
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/johnmurray/typed)
 
 Typed is a simple and pragmatic set of type wrappers for common use-cases with Go 1.18+. This library
 aims to be simple and __usable in production__ environments.
