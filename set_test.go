@@ -39,11 +39,11 @@ func TestSetBasicOperations(t *testing.T) {
 	testSetBasicOperationsByType(t, true, false)
 
 	type testStruct struct {
-		a string;
-		b int;
-		c float64;
+		a string
+		b int
+		c float64
 	}
-	testSetBasicOperationsByType(t, &testStruct{}, &testStruct{ b: 5})
+	testSetBasicOperationsByType(t, &testStruct{}, &testStruct{b: 5})
 }
 
 func TestSetVariadicConstruction(t *testing.T) {

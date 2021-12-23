@@ -11,7 +11,7 @@ func MakeSet[T comparable]() *Set[T] {
 }
 
 func MakeSetValues[T comparable](values ...T) *Set[T] {
-	s := &Set[T] {
+	s := &Set[T]{
 		set: make(map[T]struct{}, len(values)),
 	}
 	for _, v := range values {
