@@ -27,3 +27,8 @@ func MustT[T any](result T, err error) func(testing.TB) T {
 		return result
 	}
 }
+
+// Alias for `MustT`
+func MustB[T any](result T, err error) func (testing.TB) T {
+	return MustT[T](result, err)
+}

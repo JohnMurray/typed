@@ -12,4 +12,37 @@ and types as both an experiment in typing in Go 1.18+ and also a transitionary p
 library evolves over future releases.
 
 
+## Examples
+
+### `Queue[T]`
+
+### `Stack[T]`
+
+```go
+// Allocate a stack just as you would a slice
+s := make(Stack[string], 0, 100)
+
+// Push should always succeed. Since the Stack is range-backed, this will use
+// and append and should take care of growing the stack
+s.Push("one")
+s.Push("two")
+
+// Popping should return the value or, if the Stack is empty, a non-nil error
+// response
+value, err := s.Pop()
+```
+
+### `Set[T]`
+
+### Test Utilities
+
+__`Must[T]`__
+
+__`MustT[T]`__
+
+__`MustB[T]`__
+
+Alias for `MustT[T]`.
+
+
   [no_change]: https://github.com/golang/go/issues/48918
