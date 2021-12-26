@@ -19,9 +19,11 @@ func Must[T any](result T, err error) T {
 
 // MustT behaves similar to `Must`, but takes a `testing.TB` and will make a call to
 // Fatalf when an error is encountered.
-func MustT[T any](t testing.TB, result T, err error) T {
-	if err != nil {
-		t.Fatalf("expected nil error, got: %v", err)
+func MustT[T any](result T, err error) func(testing.TB) T {
+	return func(t testing.TB) T {
+		if err != nil {
+			t.Fatalf("expected nil error, got: %v", err)
+		}
+		return result
 	}
-	return result
 }
