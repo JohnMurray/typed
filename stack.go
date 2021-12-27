@@ -2,9 +2,9 @@ package typed
 
 import "fmt"
 
-// Stack is a standard LIFO stack backed by a slice. An initial capacity may
-// be specified in `NewStack`, but there is not fixed capacity.
-// thread-safe
+// Stack is a standard LIFO stack backed by a slice. Queue specific methods
+// include Push and Pop. Stacks may be declared as empty or allocated with
+// `make` as a regular slice.
 type Stack[T any] []T
 
 func (s *Stack[T]) Push(element T) {
