@@ -101,6 +101,41 @@ value, err := s.Pop()
 
 ### `Set[T]`
 
+A wrapper around `map[T]struct{}` for set operations.
+
+```go
+// allocate your set in the same way you would a map
+s := make(Set[string])
+
+// OR you can allocate and assign initial values
+s = MakeSet("one", "two", "three")
+
+// check the length with len()
+len(s)
+
+if !s.Has("four") {
+  s.Add("four")
+}
+
+// Adding duplicates is fine
+lenBefore := len(s)
+s.Add("four")
+if lenBefore != len(s) {
+  panic("should account for duplicates")
+}
+
+// Iterate with ForEach, or with a for-loop
+s.ForEach(func(value string) { fmt.Println(value) })
+for value, _ := range s {
+  fmt.Println(value)
+}
+
+// Perform common set operations
+MakeSet(1, 2, 3).Intersection(MakeSet(2, 3, 4)) // == MakeSet(2, 3)
+MakeSet(1, 2, 3).Union(MakeSet(2, 3, 4))        // == MakeSet(1, 2, 3, 4)
+MakeSet(1, 2, 3).Subtract(MakeSet(2, 3, 4))     // == MakeSet(1)
+```
+
 ### Test Utilities
 
 __`Must[T]`__
