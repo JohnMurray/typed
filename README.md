@@ -24,9 +24,14 @@ library evolves over future releases.
 
 ### `Queue[T]`
 
+A `chan T` backed queue implementation.
+
 ```go
 // Allocate a queue with a fixed capacity
 q := NewQueue[int](100)
+
+// Defer close the queue (closes for writing, but not reading)
+defer q.Close()
 
 // Fill up the queue using synchronous pushes. This is fine
 // since we have he capacity and will be immediate.
@@ -45,6 +50,9 @@ go func() {
 if q.TryPush(102) {
   panic("queue should be full and return false")
 }
+
+// Current length should equal the capacity
+fmt.Printf("%d\n", q.Length())
 
 // Pop all of our items off of the queue (including the one
 // pending additional capacity)
