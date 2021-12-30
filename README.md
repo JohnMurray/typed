@@ -85,6 +85,8 @@ for ok {
 
 ### `Stack[T]`
 
+A slice-backed Stack implementation.
+
 ```go
 // Allocate a stack just as you would a slice
 s := make(Stack[string], 0, 100)
