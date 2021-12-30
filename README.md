@@ -16,6 +16,57 @@ library evolves over future releases.
 
 ### `Queue[T]`
 
+```go
+// Allocate a queue with a fixed capacity
+q := NewQueue[int](100)
+
+// Fill up the queue using synchronous pushes. This is fine
+// since we have he capacity and will be immediate.
+for i := 0; i < 100; i++ {
+  q.Pushes(i)
+}
+
+go func() {
+  // Because we're at capacity, this will block until the
+  // queue is read from and some capacity is freed up
+  q.Push(101)
+}()
+
+// We can attempt to push async as well. This will return
+// 'false' if the queue is full, but returns immediately.
+if q.TryPush(102) {
+  panic("queue should be full and return false")
+}
+
+// Pop all of our items off of the queue (including the one
+// pending additional capacity)
+for i := 0; i < 101; i++ {
+  fmt.Printf("%d\n", q.Pop())
+}
+
+go func() {
+  // Popping is also synchronous so this will block until more
+  // data is pushed onto the queue
+  q.Pop()
+}()
+
+// We can attempt to pull async. This return the value and a
+// true/false value indicating success. If the queue is empty
+// then the empty-value for the type + false is returned.
+if val, ok := q.TryPop(); ok {
+  panic("queue should be empty")
+}
+
+// We could also use TryPop to loop over only the current items
+// in the queue
+val, ok := q.TryPop()
+for ok {
+  // use value ...
+  // then consume the next one
+  val, ok = q.TryPop()
+}
+```
+
 ### `Stack[T]`
 
 ```go
