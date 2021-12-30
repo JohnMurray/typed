@@ -11,8 +11,19 @@ I strongly agree with this move, and so this library aims to provide wrappers fo
 and types as both an experiment in typing in Go 1.18+ and also a transitionary package as the standard
 library evolves over future releases.
 
+## Installation
 
-## Examples
+```shell
+go get -d github.com/johnmurray/typed@main
+```
+
+__Note__: This _requires_ Go 1.18+ to use.
+
+
+## Examples and Docs
+
+pkg.go.dev doesn't currently support documentation generation for generics. So please refer
+to the below examples for reference. Also feel free to read the source if that's your jam.
 
   + [`Queue[T]`](#queuet)
   + [`Stack[T]`](#stackt)
