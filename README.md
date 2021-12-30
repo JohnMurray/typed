@@ -138,7 +138,7 @@ MakeSet(1, 2, 3).Subtract(MakeSet(2, 3, 4))     // == MakeSet(1)
 
 ### Test Utilities
 
-__`Must[T]`__
+#### `Must[T]`
 
 Assert that a function returning a `(value, error)` tuple returns a `nil`
 error. If a non-`nil` error is returned, the function will panic.
@@ -152,7 +152,7 @@ func TestMaybeValue(t *testing.T) {
 }
 ```
 
-__`MustT[T]`__
+#### `MustT[T]`
 
 Assert that a function returning a `(value, error)` tuple returns a `nil`
 error. If a non-`nil` error is returned, the function will call `t.Fatalf`.
@@ -169,7 +169,7 @@ func TestMaybeValue(t *testing.T) {
 This may be called with `testing.T` or `testing.B`. The `testing.T` parameter
 comes in a second parameter list to aid with better type deduction.
 
-__`MustB[T]`__
+#### `MustB[T]`
 
 Alias for `MustT[T]`.
 
