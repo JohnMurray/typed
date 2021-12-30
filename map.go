@@ -5,13 +5,18 @@ import (
 	"sort"
 )
 
-// Given a map that has an ordered key, return a range of sorted keys
-// (useful for sorted iteration of the values).
-func SortedKeys[T constraints.Ordered, U any](m map[T]U) []T {
-	keys := make([]T, len(m))
+type Map[K comparable, V any] map[K]V
+
+// Return the set of Keys in a Map as a slice
+func (m Map[K, V]) Keys() []K {
+	keys := make([]K, 0, len(m))
 	for k, _ := range m {
 		keys = append(keys, k)
 	}
-	sort.Slice(keys, func(i, j int) bool { return keys[i] < keys[j] })
 	return keys
+}
+
+// Return the keys from the map as a set of type Set[K]
+func (m Map[K, V]) KeySet() Set[K] {
+	return MakeSet(m.Keys()...)
 }
