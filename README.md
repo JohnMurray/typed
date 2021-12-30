@@ -14,6 +14,14 @@ library evolves over future releases.
 
 ## Examples
 
+  + [`Queue[T]`](#queuet)
+  + [`Stack[T]`](#stackt)
+  + [`Set[T]`](#sett)
+  + Test Utilities
+    + [`Must[T]`](#mustt)
+    + [`MustT[T]`](#musttt)
+    + [`MustB[T]`](#mustbt)
+
 ### `Queue[T]`
 
 ```go
