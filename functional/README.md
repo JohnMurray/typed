@@ -23,3 +23,15 @@ ints := []int{1, 2, 3, 4}
 strs := Map(ints, strconv.Itoa)
 // strs -> ["1", "2", "3", "4"]
 ```
+
+### `FlatMap`
+
+Similar to `Map`, but the return values must be a collection (slice/map). Each value
+returned from the function is "flattened" into the output collection.
+
+```go
+duplicate := func(i int) []int { return []int{i, i} }
+ints := []int{1, 2, 3, 4}
+dups := Map(ints, duplicate)
+// dups: [1, 1, 2, 2, 3, 3, 4, 4]
+```
