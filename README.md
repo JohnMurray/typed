@@ -33,6 +33,8 @@ to the below examples for reference. Also feel free to read the source if that's
     + [`MustT[T]`](#musttt)
     + [`MustB[T]`](#mustbt)
 
+For free-standing functional methods, see the [functional][func] sub-package.
+
 ### `Queue[T]`
 
 A `chan T` backed queue implementation.
@@ -188,3 +190,4 @@ Alias for `MustT[T]`.
 
 
   [no_change]: https://github.com/golang/go/issues/48918
+  [func]: https://github.com/JohnMurray/typed/tree/main/functional
